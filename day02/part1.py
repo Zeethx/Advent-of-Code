@@ -1,6 +1,6 @@
 from os import getcwd
 
-with open(f'{getcwd()}\day02\input.txt', 'r') as file:
+with open(f'{getcwd()}\day02\hbedi.txt', 'r') as file:
     guide = list(map(lambda x: x.split(" "), file.read().split('\n')))
 
 points = 0
@@ -14,8 +14,7 @@ def getScore(elf, user):
     else:
         return 6 + plusPoints[user] if user == 'X' else plusPoints[user] if user == 'Y' else 3+ plusPoints[user]
 
-for strat in guide:
-    points = points + getScore(strat[0], strat[1])
+print(sum([getScore(elf, user) for elf, user in guide]))
 
-print(points)
+
 
